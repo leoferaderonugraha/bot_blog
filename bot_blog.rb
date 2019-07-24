@@ -19,7 +19,7 @@ time = Time.now.strftime("%I:%M:%S").split(':')
 if time[0].to_i >= 11 #set reminder to 2 hours in 12 
   dest = "#{time[0].to_i - 10}:#{time[1].to_i + 1}:#{time[2].to_i}".split(':')
 else
-  dest = "#{time[0].to_i}:#{time[1].to_i + 1}:#{time[2].to_i}".split(':')
+  dest = "#{time[0].to_i + 2}:#{time[1].to_i}:#{time[2].to_i}".split(':')
 end
 
 loop do
