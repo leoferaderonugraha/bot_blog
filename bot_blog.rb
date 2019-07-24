@@ -44,8 +44,8 @@ loop do
       tmp = proxy
     end
   rescue Timeout::Error
-    puts "Timeout on #{proxy}"
     proxies.delete(proxy)
+    puts "Timeout on #{proxy}, deleted"
   rescue Interrupt => e
     puts "Done..."
     exit
