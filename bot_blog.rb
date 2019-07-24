@@ -10,8 +10,8 @@ open("https://www.proxy-list.download/api/v1/get?type=http"){|fp|
 proxies.flatten! #set the array to 1 dimension
 tmp = ''
 counter = 0
-time = Time.now.strftime("%H:%M").split(':')
-if time[0].to_i >= 11
+time = Time.now.strftime("%I:%M").split(':')
+if time[0].to_i >= 11 #set reminder to 2 hours in 12 
   dest = "#{time[0].to_i - 10}:#{time[1]}}"
 else
   dest = "#{time[0].to_i + 2}:#{time[1]}"
@@ -19,8 +19,8 @@ end
 
 loop do
   begin
-    curtime = Time.now.strftime("%H:%M")
-    if curtime == dest
+    curtime = Time.now.strftime("%I:%M")
+    if curtime == dest  #if it's hit our 2 hours reminder
       proxies = Array.new
       open("https://www.proxy-list.download/api/v1/get?type=http"){|fp|
         proxies.append(fp.read.split("\r\n"))
