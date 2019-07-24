@@ -1,5 +1,9 @@
 require 'open-uri'
 
+#test output on heroku
+puts "Hello Rion"
+
+
 u_agent = 'Mozilla/5.0 (platform; rv:geckoversion) Gecko/geckotrail Firefox/firefoxversion'
 proxies = Array.new
 
