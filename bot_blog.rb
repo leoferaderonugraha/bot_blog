@@ -1,5 +1,4 @@
 require 'open-uri'
-require 'pry'
 
 u_agent = 'Mozilla/5.0 (platform; rv:geckoversion) Gecko/geckotrail Firefox/firefoxversion'
 proxies = Array.new
