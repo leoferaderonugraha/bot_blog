@@ -34,7 +34,7 @@ loop do
       open(
         'https://lfnugraha.blogspot.com/',
         proxy: URI.parse("http://#{proxy}"),
-        :open_timeout => 5, #set timeout for connecting
+        :open_timeout => 3, #set timeout for connecting
         :read_timeout => 3,
         'User-Agent' => u_agent
       ){|page|
