@@ -20,7 +20,7 @@ end
 loop do
   begin
     curtime = Time.now.strftime("%I:%M")
-    if curtime == dest  #if it's hit our 2 hours reminder
+    if curtime == dest || proxies.nil?  #if it's hit our 2 hours reminder or proxies is empty
       proxies = Array.new
       open("https://www.proxy-list.download/api/v1/get?type=http"){|fp|
         proxies.append(fp.read.split("\r\n"))
@@ -45,6 +45,7 @@ loop do
     end
   rescue Timeout::Error
     puts "Timeout on #{proxy}"
+    proxies.delete(proxy)
   rescue Interrupt => e
     puts "Done..."
     exit
