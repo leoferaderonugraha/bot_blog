@@ -50,8 +50,11 @@ loop do
   rescue Timeout::Error
     proxies.delete(proxy)
     puts "Timeout on #{proxy}, deleted"
-  rescue Interrupt => e
+  rescue Interrupt
     puts "Done..."
+    exit
+  rescue SignalException => e
+    puts "#{e}, bye..."
     exit
   rescue Exception => e
     proxies.delete(proxy)
