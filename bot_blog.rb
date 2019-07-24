@@ -37,7 +37,7 @@ loop do
       #binding.pry
       #sleep 30
     end
-    puts("[#{curtime}] - [#{dest}]")
+    #puts("[#{curtime}] - [#{dest}]")
     proxy = proxies[rand(0...proxies.size)]
     while proxy == tmp do #use another proxy if has been used before for fixing connection issue
       proxy = proxies[rand(0...proxies.size)]
@@ -55,7 +55,7 @@ loop do
     tmp = proxy
   rescue Timeout::Error
     proxies.delete(proxy)
-    puts "Timeout on #{proxy}, deleted"
+    #puts "Timeout on #{proxy}, deleted"
   rescue Interrupt
     puts "Done..."
     exit
@@ -64,6 +64,6 @@ loop do
     exit
   rescue Exception => e
     proxies.delete(proxy)
-    puts "#{e} on #{proxy}, deleted"
+    #puts "#{e} on #{proxy}, deleted"
   end
 end
